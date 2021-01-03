@@ -1,0 +1,31 @@
+{
+  "name": "@tattoo/browser",
+  "version": "0.0.1",
+  "description": "Tattoo - Browser",
+  "author": "Alejandro Ojeda Gutierrez",
+  "private": true,
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/localnet/tattoo-browser.git"
+  },
+  "scripts": {
+    "start": "node makefile start",
+    "lint": "node makefile lint",
+    "build": "node makefile build"
+  },
+  "dependencies": {
+    "tslib": "^2.0.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "husky": "^4.3.6",
+    "prettier": "^2.2.1",
+    "shelljs": "^0.8.4",
+    "typescript": "^4.1.2"
+  }
+}
