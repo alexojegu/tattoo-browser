@@ -1,0 +1,20 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        ["@babel/preset-react", { "runtime": "automatic" }]
+      ],
+      "plugins": [
+        ["babel-plugin-styled-components", { "displayName": false }]
+      ]
+    },
+    "development": {
+      "presets": [
+        ["@babel/preset-react", { "runtime": "automatic" }]
+      ],
+      "plugins": [
+        ["babel-plugin-styled-components", { "displayName": true }]
+      ]
+    }
+  }
+}

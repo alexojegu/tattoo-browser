@@ -4,7 +4,7 @@
   "description": "Tattoo - Browser",
   "author": "Alejandro Ojeda Gutierrez",
   "private": true,
-  "main": "dist/index.js",
+  "main": "dist/index.html",
   "repository": {
     "type": "git",
     "url": "https://github.com/localnet/tattoo-browser.git"
@@ -12,20 +12,38 @@
   "scripts": {
     "start": "node makefile start",
     "lint": "node makefile lint",
-    "build": "node makefile build"
+    "build": "node makefile build",
+    "watch": "node makefile watch"
   },
   "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "styled-components": "^5.2.1",
     "tslib": "^2.0.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "@typescript-eslint/parser": "^4.11.1",
+    "babel-loader": "^8.2.2",
     "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.0",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^4.5.1",
+    "http-server": "^0.12.3",
     "husky": "^4.3.6",
     "prettier": "^2.2.1",
     "shelljs": "^0.8.4",
-    "typescript": "^4.1.2"
+    "ts-loader": "^8.0.13",
+    "typescript": "^4.1.2",
+    "webpack": "^5.11.1",
+    "webpack-cli": "^4.3.1",
+    "webpack-dev-server": "^3.11.1"
   }
 }

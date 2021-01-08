@@ -6,13 +6,17 @@
   },
   "plugins": [
     "prettier",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "react",
+    "react-hooks"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "ignorePatterns": ["dist"],
   "rules": {
@@ -24,7 +28,9 @@
     "@typescript-eslint/member-ordering": "error",
     "@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
     "@typescript-eslint/promise-function-async": "error",
-    "@typescript-eslint/require-await": "error"
+    "@typescript-eslint/require-await": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   },
   "overrides": [
     {

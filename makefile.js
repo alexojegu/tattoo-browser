@@ -2,18 +2,23 @@ require('shelljs/make');
 
 target.start = () => {
   env['NODE_ENV'] = 'production';
-  exec('node dist/index.js');
+  exec('http-server dist --silent');
 };
 
 target.lint = () => {
   env['NODE_ENV'] = 'development';
-  exec('eslint . --ext .js,.ts');
+  exec('eslint . --ext .js,.ts,.tsx');
 };
 
 target.build = () => {
   env['NODE_ENV'] = 'production';
   rm('-rf', 'dist/*');
-  exec('tsc -p tsconfig.json');
+  exec('webpack --bail --color');
+};
+
+target.watch = () => {
+  env['NODE_ENV'] = 'development';
+  exec('webpack serve');
 };
 
 target.git = ([hook]) => {
