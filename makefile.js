@@ -8,6 +8,7 @@ target.start = () => {
 target.lint = () => {
   env['NODE_ENV'] = 'development';
   exec('eslint . --ext .js,.ts,.tsx');
+  exec('prettier src/**/*.svg --write');
 };
 
 target.build = () => {

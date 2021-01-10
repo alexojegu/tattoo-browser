@@ -7,6 +7,12 @@
       "options": {
         "singleQuote": true
       }
+    },
+    {
+      "files": "*.svg",
+      "options": {
+        "parser": "html"
+      }
     }
   ]
 }

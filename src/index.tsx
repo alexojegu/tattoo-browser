@@ -1,10 +1,22 @@
 import { FunctionComponent, StrictMode } from "react";
 import { render } from "react-dom";
-import { createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
+import AppContainer from "./appContainer";
+import defaultTheme from "./defaultTheme";
 
 const GlobalStyle = createGlobalStyle`
     body {
         margin: 0px;
+        font-family: ${({ theme }) => theme.fonts.sans};
+        font-size: ${({ theme }) => theme.fontSizes[2]};
+        font-weight: ${({ theme }) => theme.fontWeights.regular};
+        line-height: ${({ theme }) => theme.lineHeights.default};
+        background: ${({ theme }) => theme.colors.bg.primary};
+        color: ${({ theme }) => theme.colors.text.primary}
+    }
+
+    svg {
+        vertical-align: middle;
     }
 
     *, *::before, *::after {
@@ -15,8 +27,10 @@ const GlobalStyle = createGlobalStyle`
 const AppRoot: FunctionComponent = () => {
     return (
         <StrictMode>
-            <GlobalStyle />
-            <div>Tattoo</div>
+            <ThemeProvider theme={defaultTheme()}>
+                <GlobalStyle />
+                <AppContainer />
+            </ThemeProvider>
         </StrictMode>
     );
 };

@@ -7,7 +7,10 @@ module.exports = {
   entry: './src/index.tsx',
   resolve: { extensions: ['.js', '.ts', '.tsx'] },
   module: {
-    rules: [{ test: /\.tsx?$/, use: ['babel-loader', 'ts-loader'] }],
+    rules: [
+      { test: /\.tsx?$/, use: ['babel-loader', 'ts-loader'] },
+      { test: /\.svg$/, use: ['@svgr/webpack'] },
+    ],
   },
   plugins: [new HtmlWebpackPlugin({ template: 'web/index.html', scriptLoading: 'defer' })],
   optimization: { minimize: process.env.NODE_ENV === 'production' },
