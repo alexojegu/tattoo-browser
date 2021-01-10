@@ -1,8 +1,10 @@
+import { ApolloProvider } from "@apollo/client";
 import { FunctionComponent, StrictMode } from "react";
 import { render } from "react-dom";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import AppContainer from "./appContainer";
 import defaultTheme from "./defaultTheme";
+import graphqlClient from "./graphqlClient";
 
 const GlobalStyle = createGlobalStyle`
     body {
@@ -27,10 +29,12 @@ const GlobalStyle = createGlobalStyle`
 const AppRoot: FunctionComponent = () => {
     return (
         <StrictMode>
-            <ThemeProvider theme={defaultTheme()}>
-                <GlobalStyle />
-                <AppContainer />
-            </ThemeProvider>
+            <ApolloProvider client={graphqlClient}>
+                <ThemeProvider theme={defaultTheme()}>
+                    <GlobalStyle />
+                    <AppContainer />
+                </ThemeProvider>
+            </ApolloProvider>
         </StrictMode>
     );
 };

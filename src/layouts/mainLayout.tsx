@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { css } from "styled-components";
 
 const IndexPage = lazy(async () => import("../pages/indexPage"));
+const IndexArtist = lazy(async () => import("../pages/artists/indexArtist"));
 const ErrorPage = lazy(async () => import("../pages/errorPage"));
 
 export default function MainLayout(): ReactElement {
@@ -18,6 +19,9 @@ export default function MainLayout(): ReactElement {
                 <Switch>
                     <Route exact path="/">
                         <IndexPage />
+                    </Route>
+                    <Route exact path="/artist">
+                        <IndexArtist />
                     </Route>
                     <Route path="/*">
                         <ErrorPage />

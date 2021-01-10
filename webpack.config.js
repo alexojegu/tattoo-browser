@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { join } = require('path');
+const { EnvironmentPlugin } = require('webpack');
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -12,7 +13,10 @@ module.exports = {
       { test: /\.svg$/, use: ['@svgr/webpack'] },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: 'web/index.html', scriptLoading: 'defer' })],
+  plugins: [
+    new HtmlWebpackPlugin({ template: 'web/index.html', scriptLoading: 'defer' }),
+    new EnvironmentPlugin(['GRAPHQL_URL']),
+  ],
   optimization: { minimize: process.env.NODE_ENV === 'production' },
   output: {
     path: join(__dirname, 'dist'),
