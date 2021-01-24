@@ -1,7 +1,7 @@
 import { DefaultTheme } from "styled-components";
 import { commonPalette, darkPalette, lightPalette } from "./utils/colorUtil";
 
-const commonStyle: Omit<DefaultTheme, "colors" | "mediaQueries"> = {
+const commonStyle: Omit<DefaultTheme, "colors" | "media"> = {
     breakpoints: ["544px", "768px", "1012px", "1280px"],
     zIndices: [100],
     sizes: {
@@ -10,6 +10,7 @@ const commonStyle: Omit<DefaultTheme, "colors" | "mediaQueries"> = {
     },
     space: ["4px", "8px", "16px", "24px", "32px", "40px"],
     borders: ["1px solid"],
+    radii: ["3px", "6px", "9px"],
     fonts: {
         sans: "system-ui, sans-serif",
     },
@@ -27,6 +28,7 @@ const lightStyle: Pick<DefaultTheme, "colors"> = {
     colors: {
         bg: {
             primary: commonPalette.light,
+            secondary: darkPalette.gray[0],
         },
         text: {
             primary: lightPalette.gray[9],
@@ -42,6 +44,7 @@ const darkStyle: Pick<DefaultTheme, "colors"> = {
     colors: {
         bg: {
             primary: commonPalette.dark,
+            secondary: darkPalette.gray[9],
         },
         text: {
             primary: darkPalette.gray[0],
@@ -53,19 +56,19 @@ const darkStyle: Pick<DefaultTheme, "colors"> = {
     },
 };
 
-const mediaStyle: Pick<DefaultTheme, "mediaQueries"> = {
-    mediaQueries: [
-        `@media (min-width: ${commonStyle.breakpoints[0]})`,
-        `@media (min-width: ${commonStyle.breakpoints[1]})`,
-        `@media (min-width: ${commonStyle.breakpoints[2]})`,
-        `@media (min-width: ${commonStyle.breakpoints[3]})`,
-    ],
+const queryStyle: Pick<DefaultTheme, "media"> = {
+    media: {
+        sm: `(min-width: ${commonStyle.breakpoints[0]})`,
+        md: `(min-width: ${commonStyle.breakpoints[1]})`,
+        lg: `(min-width: ${commonStyle.breakpoints[2]})`,
+        xl: `(min-width: ${commonStyle.breakpoints[3]})`,
+    },
 };
 
 export default function defaultTheme(): DefaultTheme {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return { ...commonStyle, ...darkStyle, ...mediaStyle };
+        return { ...commonStyle, ...darkStyle, ...queryStyle };
     }
 
-    return { ...commonStyle, ...lightStyle, ...mediaStyle };
+    return { ...commonStyle, ...lightStyle, ...queryStyle };
 }

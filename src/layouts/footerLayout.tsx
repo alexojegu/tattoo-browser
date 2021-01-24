@@ -8,7 +8,7 @@ export default function FooterLayout(): ReactElement {
                 padding-right: ${({ theme }) => theme.space[2]};
                 padding-left: ${({ theme }) => theme.space[2]};
 
-                ${({ theme }) => theme.mediaQueries[1]} {
+                @media ${({ theme }) => theme.media.md} {
                     padding-right: ${({ theme }) => theme.space[4]};
                     padding-left: ${({ theme }) => theme.space[4]};
                 }

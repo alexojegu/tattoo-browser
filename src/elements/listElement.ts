@@ -7,12 +7,12 @@ const plainVariant = css`
     list-style: none;
 `;
 
-const ListElement = styled.ul.withConfig({ shouldForwardProp: (prop, forward) => forward(prop) })<ListElementProps>`
-    ${({ variant }) => variant === "plain" && plainVariant};
+const ListElement = styled.ul<ListElementProps>`
+    ${({ $variant }) => $variant === "plain" && plainVariant};
 `;
 
 export default ListElement;
 
 export interface ListElementProps {
-    variant: "plain";
+    $variant: "plain";
 }

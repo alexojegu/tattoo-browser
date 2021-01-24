@@ -22,8 +22,9 @@ export default function HeaderLayout(): ReactElement {
                 height: ${({ theme }) => theme.sizes.header};
                 padding-right: ${({ theme }) => theme.space[2]};
                 padding-left: ${({ theme }) => theme.space[2]};
+                background: ${({ theme }) => theme.colors.bg.primary};
 
-                ${({ theme }) => theme.mediaQueries[1]} {
+                @media ${({ theme }) => theme.media.md} {
                     padding-right: ${({ theme }) => theme.space[4]};
                     padding-left: ${({ theme }) => theme.space[4]};
                 }
@@ -34,10 +35,10 @@ export default function HeaderLayout(): ReactElement {
                     margin-right: ${({ theme }) => theme.space[3]};
                 `}
             >
-                <LinkElement as={Link} to="/" variant="plain">
+                <LinkElement as={Link} to="/" $variant="plain">
                     <IconGraphic
                         css={css`
-                            ${({ theme }) => theme.mediaQueries[1]} {
+                            @media ${({ theme }) => theme.media.md} {
                                 display: none;
                             }
                         `}
@@ -46,7 +47,7 @@ export default function HeaderLayout(): ReactElement {
                         css={css`
                             display: none;
 
-                            ${({ theme }) => theme.mediaQueries[1]} {
+                            @media ${({ theme }) => theme.media.md} {
                                 display: inline;
                             }
                         `}
@@ -57,13 +58,13 @@ export default function HeaderLayout(): ReactElement {
                 css={css`
                     display: none;
 
-                    ${({ theme }) => theme.mediaQueries[1]} {
+                    @media ${({ theme }) => theme.media.md} {
                         display: block;
                     }
                 `}
             >
                 <ListElement
-                    variant="plain"
+                    $variant="plain"
                     css={css`
                         display: flex;
 
@@ -73,17 +74,17 @@ export default function HeaderLayout(): ReactElement {
                     `}
                 >
                     <li>
-                        <MenuLink as={NavLink} to="/tattoo" variant="plain">
+                        <MenuLink as={NavLink} to="/tattoo" $variant="plain">
                             Tatuajes
                         </MenuLink>
                     </li>
                     <li>
-                        <MenuLink as={NavLink} to="/artist" variant="plain">
+                        <MenuLink as={NavLink} to="/artist" $variant="plain">
                             Artistas
                         </MenuLink>
                     </li>
                     <li>
-                        <MenuLink as={NavLink} to="/studio" variant="plain">
+                        <MenuLink as={NavLink} to="/studio" $variant="plain">
                             Estudios
                         </MenuLink>
                     </li>

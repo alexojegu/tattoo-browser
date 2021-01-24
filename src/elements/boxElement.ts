@@ -7,18 +7,18 @@ const pageVariant = css`
     padding-right: ${({ theme }) => theme.space[2]};
     padding-left: ${({ theme }) => theme.space[2]};
 
-    ${({ theme }) => theme.mediaQueries[1]} {
+    @media ${({ theme }) => theme.media.md} {
         padding-right: ${({ theme }) => theme.space[4]};
         padding-left: ${({ theme }) => theme.space[4]};
     }
 `;
 
-const BoxElement = styled.div.withConfig({ shouldForwardProp: (prop, forward) => forward(prop) })<BoxElementProps>`
-    ${({ variant }) => variant === "page" && pageVariant};
+const BoxElement = styled.div<BoxElementProps>`
+    ${({ $variant }) => $variant === "page" && pageVariant};
 `;
 
 export default BoxElement;
 
 export interface BoxElementProps {
-    variant: "page";
+    $variant: "page";
 }

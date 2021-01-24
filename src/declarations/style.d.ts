@@ -16,6 +16,7 @@ declare module "styled-components" {
         };
         space: string[];
         borders: string[];
+        radii: string[];
         fonts: {
             sans: string;
         };
@@ -30,6 +31,7 @@ declare module "styled-components" {
         colors: {
             bg: {
                 primary: string;
+                secondary: string;
             };
             text: {
                 primary: string;
@@ -39,6 +41,11 @@ declare module "styled-components" {
                 secondary: string;
             };
         };
-        mediaQueries: string[];
+        media: {
+            sm: string;
+            md: string;
+            lg: string;
+            xl: string;
+        };
     }
 }

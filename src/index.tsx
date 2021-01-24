@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.text.primary}
     }
 
-    svg {
+    img, svg {
         vertical-align: middle;
     }
 

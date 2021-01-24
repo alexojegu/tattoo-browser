@@ -5,22 +5,23 @@
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:svg="http://www.w3.org/2000/svg"
   xmlns="http://www.w3.org/2000/svg"
+  id="icon"
   width="32"
   height="32"
   viewBox="0 0 32 32"
   version="1.1"
-  id="icon"
 >
-  <defs id="defs" />
   <metadata id="metadata">
     <rdf:RDF>
       <cc:Work rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title>icon</dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
+  <title id="title">icon</title>
+  <defs id="defs" />
   <path
     id="path"
     d="M 16.155556,4.9555552 H 26.733333 V 2 h 0.311111 V 4.9555552 H 30 V 5.2666663 H 27.044444 V 15.844443 H 30 v 0.311112 H 27.044444 V 26.733332 H 30 v 0.31111 h -2.955556 v 2.955555 H 26.733333 V 27.044442 H 16.155556 v 2.955555 H 15.844444 V 27.044442 H 5.2666666 v 2.955555 H 4.9555555 V 27.044442 H 2 v -0.31111 H 4.9555555 V 16.155555 H 2 V 15.844443 H 4.9555555 V 5.2666663 H 2 V 4.9555552 H 4.9555555 V 2 H 5.2666666 V 4.9555552 H 15.844444 V 2 h 0.311112 z M 5.2666666,15.844443 H 14.444444 V 8.2222216 H 5.2666666 Z m 12.2888874,0 h 9.177779 V 8.2222216 h -9.177779 z m 0,0.311112 v 10.577777 h 9.177779 V 16.155555 Z m -3.11111,10.577777 V 16.155555 H 5.2666666 v 10.577777 z"
