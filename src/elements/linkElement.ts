@@ -1,16 +1,18 @@
 import styled, { css } from "styled-components";
 
-const plainVariant = css`
-    text-decoration: none;
-    color: inherit;
-`;
+const linkVariants = {
+    plain: css`
+        text-decoration: none;
+        color: inherit;
+    `,
+};
 
 const LinkElement = styled.a<LinkElementProps>`
-    ${({ $variant }) => $variant === "plain" && plainVariant};
+    ${({ $variant }) => $variant && linkVariants[$variant]};
 `;
 
 export default LinkElement;
 
 export interface LinkElementProps {
-    $variant: "plain";
+    $variant: keyof typeof linkVariants;
 }
