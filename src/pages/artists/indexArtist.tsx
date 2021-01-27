@@ -84,7 +84,11 @@ export default function IndexArtist(): ReactElement | null {
                                     padding: ${({ theme }) => theme.space[2]};
                                 `}
                             >
-                                <AvatarComponent image={artist.account.image} name={artist.account.name} />
+                                <AvatarComponent
+                                    size="medium"
+                                    image={artist.account.image}
+                                    name={artist.account.name}
+                                />
                                 <TextElement
                                     $variant="line"
                                     css={css`

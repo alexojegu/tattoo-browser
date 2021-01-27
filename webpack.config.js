@@ -22,6 +22,7 @@ module.exports = {
     path: join(__dirname, 'dist'),
     filename: 'scripts/[contenthash].js',
     chunkFilename: 'scripts/[contenthash].js',
+    publicPath: '/',
   },
   devServer: {
     stats: 'errors-warnings',
