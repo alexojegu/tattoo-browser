@@ -13,6 +13,17 @@ export const INDEX_TATTOO = gql`
     }
 `;
 
+export const DETAIL_TATTOO = gql`
+    query detailTattoo($id: ID!) {
+        tattoo(id: $id) {
+            id
+            image
+            width
+            height
+        }
+    }
+`;
+
 export interface IndexTattooData {
     tattoos: {
         nodes: {
@@ -27,4 +38,17 @@ export interface IndexTattooData {
 export interface IndexTattooVars {
     limit: number;
     cursor?: string;
+}
+
+export interface DetailTattooData {
+    tattoo?: {
+        id: string;
+        image: string;
+        width: number;
+        height: number;
+    };
+}
+
+export interface DetailTattooVars {
+    id: string | number;
 }

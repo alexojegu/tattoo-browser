@@ -4,6 +4,7 @@ import { css } from "styled-components";
 
 const IndexPage = lazy(async () => import("../pages/indexPage"));
 const IndexTattoo = lazy(async () => import("../pages/tattoos/indexTattoo"));
+const DetailTattoo = lazy(async () => import("../pages/tattoos/detailTattoo"));
 const IndexArtist = lazy(async () => import("../pages/artists/indexArtist"));
 const DetailArtist = lazy(async () => import("../pages/artists/detailArtist"));
 const ErrorPage = lazy(async () => import("../pages/errorPage"));
@@ -24,6 +25,9 @@ export default function MainLayout(): ReactElement {
                     </Route>
                     <Route exact path="/tattoo">
                         <IndexTattoo />
+                    </Route>
+                    <Route exact path="/tattoo/detail/:id">
+                        <DetailTattoo />
                     </Route>
                     <Route exact path="/artist">
                         <IndexArtist />

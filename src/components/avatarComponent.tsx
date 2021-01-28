@@ -14,7 +14,8 @@ export default function AvatarComponent(props: AvatarComponentProps): ReactEleme
         <div
             css={css`
                 min-width: ${avatarSizes[props.size]};
-                min-height: ${avatarSizes[props.size]};
+                width: ${avatarSizes[props.size]};
+                height: ${avatarSizes[props.size]};
                 border-radius: ${props.square ? ({ theme }) => theme.radii[1] : "50%"};
                 background: ${({ theme }) => theme.colors.bg.secondary};
                 overflow: hidden;
