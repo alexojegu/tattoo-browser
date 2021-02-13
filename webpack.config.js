@@ -14,8 +14,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: 'web/index.html', scriptLoading: 'defer' }),
-    new EnvironmentPlugin(['GRAPHQL_URL', 'IMAGE_URL']),
+    new HtmlWebpackPlugin({ template: 'web/index.html' }),
+    new EnvironmentPlugin(['GRAPHQL_URL', 'IMAGE_URL', 'MAP_URL', 'MAP_KEY']),
   ],
   optimization: { minimize: process.env.NODE_ENV === 'production' },
   output: {

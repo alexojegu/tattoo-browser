@@ -22,7 +22,11 @@ export default function AvatarComponent(props: AvatarComponentProps): ReactEleme
             `}
             className={props.className}
         >
-            <ImageElement loading="lazy" alt={props.name} $api={{ path: props.image, width: size, height: size }} />
+            <ImageElement
+                loading="lazy"
+                alt={props.name}
+                $api={{ type: "image", image: props.image, width: size, height: size }}
+            />
         </div>
     );
 }

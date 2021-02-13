@@ -1,5 +1,5 @@
-export function imageApi(args: ImageApiArgs): ImageApiData {
-    const url = new URL(args.path, process.env.IMAGE_URL);
+export function imageApi(args: ImageApiArgs): Pick<HTMLImageElement, "src"> {
+    const url = new URL(args.image, process.env.IMAGE_URL);
 
     if (args.width) {
         url.searchParams.set("w", String(args.width));
@@ -15,12 +15,28 @@ export function imageApi(args: ImageApiArgs): ImageApiData {
     return { src: url.toString() };
 }
 
+export function mapApi(args: MapApiArgs): Pick<HTMLImageElement, "src"> {
+    const url = new URL("static", process.env.MAP_URL);
+
+    url.searchParams.set("access-token", String(process.env.MAP_KEY));
+
+    url.searchParams.set("center", args.location.join());
+    url.searchParams.set("size", `${args.width}x${args.height}`);
+
+    url.searchParams.set("zoom", "13");
+    url.searchParams.set("format", "png");
+
+    return { src: url.toString() };
+}
+
 export interface ImageApiArgs {
-    path: string;
+    image: string;
     width?: number;
     height?: number;
 }
 
-export interface ImageApiData {
-    src: string;
+export interface MapApiArgs {
+    location: number[];
+    width: number;
+    height: number;
 }

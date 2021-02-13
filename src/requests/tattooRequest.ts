@@ -31,7 +31,9 @@ export interface IndexTattooData {
             image: string;
             width: number;
             height: number;
+            __typename?: string;
         }[];
+        __typename?: string;
     };
 }
 
@@ -46,6 +48,7 @@ export interface DetailTattooData {
         image: string;
         width: number;
         height: number;
+        __typename?: string;
     };
 }
 

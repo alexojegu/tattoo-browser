@@ -69,7 +69,7 @@ export default function IndexArtist(): ReactElement | null {
                                     <ImageElement
                                         loading="lazy"
                                         $variant="cover"
-                                        $api={{ path: artist.tattoos.nodes[0].image, width: 400 }}
+                                        $api={{ type: "image", image: artist.tattoos.nodes[0].image, width: 400 }}
                                         css={css`
                                             position: absolute;
                                             top: 0px;

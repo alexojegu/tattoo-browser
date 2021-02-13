@@ -53,14 +53,19 @@ export interface IndexArtistData {
                 id: string;
                 name: string;
                 image: string;
+                __typename?: string;
             };
             tattoos: {
                 nodes: {
                     id: string;
                     image: string;
+                    __typename?: string;
                 }[];
+                __typename?: string;
             };
+            __typename?: string;
         }[];
+        __typename?: string;
     };
 }
 
@@ -77,6 +82,7 @@ export interface DetailArtistData {
             id: string;
             name: string;
             image: string;
+            __typename?: string;
         };
         tattoos: {
             nodes: {
@@ -84,11 +90,14 @@ export interface DetailArtistData {
                 image: string;
                 width: number;
                 height: number;
+                __typename?: string;
             }[];
+            __typename?: string;
         };
         website?: string;
         instagram?: string;
         facebook?: string;
+        __typename?: string;
     };
 }
 

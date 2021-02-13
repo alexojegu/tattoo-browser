@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
         color: ${({ theme }) => theme.colors.text.primary}
     }
 
+    button {
+        font: inherit;
+    }
+
     img, svg {
         vertical-align: middle;
     }

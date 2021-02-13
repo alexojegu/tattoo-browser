@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { AtLeastOne } from "../declarations/common";
-import { ImageApiArgs, imageApi } from "../utils/imageUtil";
+import { ImageApiArgs, MapApiArgs, imageApi, mapApi } from "../utils/imageUtil";
 
 const imageVariants = {
     contain: css`
@@ -16,11 +16,17 @@ const imageVariants = {
 };
 
 const ImageElement = styled.img.attrs<AtLeastOne<ImageElementProps>>(({ $api }) => {
-    if (!$api) {
-        return;
+    if ($api) {
+        if ($api.type === "image") {
+            return imageApi($api);
+        }
+
+        if ($api.type === "map") {
+            return mapApi($api);
+        }
     }
 
-    return imageApi($api);
+    return;
 })<AtLeastOne<ImageElementProps>>`
     ${({ $variant }) => $variant && imageVariants[$variant]};
 `;
@@ -29,5 +35,5 @@ export default ImageElement;
 
 export interface ImageElementProps {
     $variant: keyof typeof imageVariants;
-    $api: ImageApiArgs;
+    $api: ({ type: "image" } & ImageApiArgs) | ({ type: "map" } & MapApiArgs);
 }

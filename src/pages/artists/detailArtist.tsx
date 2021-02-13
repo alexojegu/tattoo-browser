@@ -87,7 +87,7 @@ export default function DetailArtist(): ReactElement | null {
                                     <ImageElement
                                         loading="lazy"
                                         $variant="contain"
-                                        $api={{ path: tattoo.image, width: 400 }}
+                                        $api={{ type: "image", image: tattoo.image, width: 400 }}
                                         css={css`
                                             position: absolute;
                                             top: 0px;

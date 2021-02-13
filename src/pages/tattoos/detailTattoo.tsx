@@ -44,7 +44,7 @@ export default function DetailTattoo(): ReactElement | null {
                     <ImageElement
                         loading="lazy"
                         $variant="contain"
-                        $api={{ path: data.tattoo.image, width: 800 }}
+                        $api={{ type: "image", image: data.tattoo.image, width: 800 }}
                         css={css`
                             position: absolute;
                             top: 0px;

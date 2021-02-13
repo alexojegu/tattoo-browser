@@ -2,9 +2,9 @@ import { ReactElement } from "react";
 import { css } from "styled-components";
 import LinkElement from "../elements/linkElement";
 import ListElement from "../elements/listElement";
-import EarthGraphic from "../graphics/earthGraphic.svg";
 import FacebookGraphic from "../graphics/facebookGraphic.svg";
 import InstagramGraphic from "../graphics/instagramGraphic.svg";
+import LinkGraphic from "../graphics/linkGraphic.svg";
 
 export default function SocialComponent(props: SocialComponentProps): ReactElement | null {
     if (!props.website && !props.instagram && !props.facebook) {
@@ -26,7 +26,7 @@ export default function SocialComponent(props: SocialComponentProps): ReactEleme
             {props.website && (
                 <li>
                     <LinkElement href={props.website} target="_blank" $variant="plain">
-                        <EarthGraphic />
+                        <LinkGraphic />
                     </LinkElement>
                 </li>
             )}
