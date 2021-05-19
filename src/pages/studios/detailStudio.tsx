@@ -15,16 +15,16 @@ import { DETAIL_STUDIO, DetailStudioData, DetailStudioVars } from "../../request
 
 export default function DetailArtist(): ReactElement | null {
     const { id } = useParams<DetailStudioParams>();
-    const { error, loading, data } = useQuery<DetailStudioData, DetailStudioVars>(DETAIL_STUDIO, {
+    const { loading, error, data } = useQuery<DetailStudioData, DetailStudioVars>(DETAIL_STUDIO, {
         variables: { id },
     });
 
-    if (error) {
-        return <Redirect to="/error" />;
-    }
-
     if (loading) {
         return null;
+    }
+
+    if (error) {
+        return <Redirect to="/error" />;
     }
 
     if (!data?.studio) {
@@ -67,11 +67,13 @@ export default function DetailArtist(): ReactElement | null {
                     >
                         {data.studio.name}
                     </HeadingElement>
-                    <SocialComponent
-                        website={data.studio.website}
-                        instagram={data.studio.instagram}
-                        facebook={data.studio.facebook}
-                    />
+                    {(data.studio.website || data.studio.instagram || data.studio.facebook) && (
+                        <SocialComponent
+                            website={data.studio.website}
+                            instagram={data.studio.instagram}
+                            facebook={data.studio.facebook}
+                        />
+                    )}
                 </div>
             </header>
             <section
@@ -181,6 +183,8 @@ export default function DetailArtist(): ReactElement | null {
                                 $variant="line"
                                 css={css`
                                     margin-left: ${({ theme }) => theme.space[1]};
+                                    font-size: ${({ theme }) => theme.fontSizes[1]};
+                                    font-weight: ${({ theme }) => theme.fontWeights.medium};
                                 `}
                             >
                                 {data.studio.address}

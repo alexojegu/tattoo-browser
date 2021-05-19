@@ -8,16 +8,16 @@ import { DETAIL_TATTOO, DetailTattooData, DetailTattooVars } from "../../request
 
 export default function DetailTattoo(): ReactElement | null {
     const { id } = useParams<DetailTattooParams>();
-    const { error, loading, data } = useQuery<DetailTattooData, DetailTattooVars>(DETAIL_TATTOO, {
+    const { loading, error, data } = useQuery<DetailTattooData, DetailTattooVars>(DETAIL_TATTOO, {
         variables: { id },
     });
 
-    if (error) {
-        return <Redirect to="/error" />;
-    }
-
     if (loading) {
         return null;
+    }
+
+    if (error) {
+        return <Redirect to="/error" />;
     }
 
     if (!data?.tattoo) {

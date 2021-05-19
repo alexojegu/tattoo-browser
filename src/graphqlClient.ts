@@ -1,8 +1,6 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
-const inMemoryCache = new InMemoryCache();
-
 export default new ApolloClient({
-    cache: inMemoryCache,
-    uri: process.env.GRAPHQL_URL,
+    uri: new URL("/", process.env.GRAPHQL_URL).toString(),
+    cache: new InMemoryCache(),
 });

@@ -12,6 +12,7 @@ export default function AvatarComponent(props: AvatarComponentProps): ReactEleme
 
     return (
         <div
+            className={props.className}
             css={css`
                 min-width: ${avatarSizes[props.size]};
                 width: ${avatarSizes[props.size]};
@@ -20,7 +21,6 @@ export default function AvatarComponent(props: AvatarComponentProps): ReactEleme
                 background: ${({ theme }) => theme.colors.bg.secondary};
                 overflow: hidden;
             `}
-            className={props.className}
         >
             <ImageElement
                 loading="lazy"

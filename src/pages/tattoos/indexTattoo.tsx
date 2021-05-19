@@ -9,16 +9,16 @@ import LinkElement from "../../elements/linkElement";
 import { INDEX_TATTOO, IndexTattooData, IndexTattooVars } from "../../requests/tattooRequest";
 
 export default function IndexTattoo(): ReactElement | null {
-    const { error, loading, data } = useQuery<IndexTattooData, IndexTattooVars>(INDEX_TATTOO, {
+    const { loading, error, data } = useQuery<IndexTattooData, IndexTattooVars>(INDEX_TATTOO, {
         variables: { limit: 20 },
     });
 
-    if (error) {
-        return <Redirect to="/error" />;
-    }
-
     if (loading) {
         return null;
+    }
+
+    if (error) {
+        return <Redirect to="/error" />;
     }
 
     if (!data?.tattoos.nodes.length) {
@@ -27,7 +27,7 @@ export default function IndexTattoo(): ReactElement | null {
 
     return (
         <BoxElement $variant="page">
-            <MasonryComponent columns={3}>
+            <MasonryComponent columns={{ sm: 2, lg: 3, xl: 4 }}>
                 {data.tattoos.nodes.map((tattoo) => (
                     <div key={tattoo.id}>
                         <LinkElement as={Link} to={`/tattoo/detail/${tattoo.id}`} $variant="plain">

@@ -4,7 +4,6 @@
     "editorconfig.editorconfig",
     "graphql.vscode-graphql",
     "jpoissonnier.vscode-styled-components",
-    "mikestead.dotenv",
-    "msjsdiag.debugger-for-chrome"
+    "mikestead.dotenv"
   ]
 }

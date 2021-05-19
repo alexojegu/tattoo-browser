@@ -2,11 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "pwa-chrome",
+      "name": "Launch Chrome",
       "request": "launch",
-      "name": "Launch Browser",
-      "url": "http://localhost:8000",
-      "webRoot": "${workspaceFolder}/src",
+      "type": "pwa-chrome",
+      "url": "http://localhost:8080",
       "skipFiles": [
         "<node_internals>/**",
         "${workspaceFolder}/node_modules/**"

@@ -17,6 +17,7 @@ const commonStyle: Omit<DefaultTheme, "colors" | "media"> = {
     fontSizes: ["12px", "14px", "16px", "20px", "24px", "32px"],
     fontWeights: {
         regular: 400,
+        medium: 500,
         semibold: 600,
     },
     lineHeights: {

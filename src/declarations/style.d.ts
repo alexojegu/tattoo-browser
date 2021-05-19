@@ -23,6 +23,7 @@ declare module "styled-components" {
         fontSizes: string[];
         fontWeights: {
             regular: number;
+            medium: number;
             semibold: number;
         };
         lineHeights: {

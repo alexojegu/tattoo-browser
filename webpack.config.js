@@ -6,7 +6,7 @@ module.exports = {
   mode: process.env.NODE_ENV,
   devtool: 'source-map',
   entry: './src/index.tsx',
-  resolve: { extensions: ['.js', '.ts', '.tsx'] },
+  resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
   module: {
     rules: [
       { test: /\.tsx?$/, use: ['babel-loader', 'ts-loader'] },
@@ -21,14 +21,11 @@ module.exports = {
   output: {
     path: join(__dirname, 'dist'),
     filename: 'scripts/[contenthash].js',
-    chunkFilename: 'scripts/[contenthash].js',
     publicPath: '/',
   },
   devServer: {
     stats: 'errors-warnings',
-    host: '0.0.0.0',
-    port: 8000,
-    contentBase: 'dist',
+    contentBase: 'web',
     compress: true,
     historyApiFallback: true,
   },

@@ -7,10 +7,10 @@ import BoxElement from "../../elements/boxElement";
 import ImageElement from "../../elements/imageElement";
 import LinkElement from "../../elements/linkElement";
 import TextElement from "../../elements/textElement";
-import { INDEX_ARTIST, IndexArtistData, IndexArtistVars } from "../../requests/artistRequest";
+import { INDEX_STUDIO, IndexStudioData, IndexStudioVars } from "../../requests/studioRequest";
 
 export default function IndexArtist(): ReactElement | null {
-    const { loading, error, data } = useQuery<IndexArtistData, IndexArtistVars>(INDEX_ARTIST, {
+    const { loading, error, data } = useQuery<IndexStudioData, IndexStudioVars>(INDEX_STUDIO, {
         variables: { limit: 20, tattooLimit: 1 },
     });
 
@@ -22,7 +22,7 @@ export default function IndexArtist(): ReactElement | null {
         return <Redirect to="/error" />;
     }
 
-    if (!data?.artists.nodes.length) {
+    if (!data?.studios.nodes.length) {
         return <Redirect to="/error" />;
     }
 
@@ -47,9 +47,9 @@ export default function IndexArtist(): ReactElement | null {
                     }
                 `}
             >
-                {data.artists.nodes.map((artist) => (
+                {data.studios.nodes.map((studio) => (
                     <div
-                        key={artist.id}
+                        key={studio.id}
                         css={css`
                             border: ${({ theme }) => theme.borders[0]};
                             border-color: ${({ theme }) => theme.colors.border.primary};
@@ -57,7 +57,7 @@ export default function IndexArtist(): ReactElement | null {
                             overflow: hidden;
                         `}
                     >
-                        <LinkElement as={Link} to={`/artist/detail/${artist.id}`} $variant="plain">
+                        <LinkElement as={Link} to={`/studio/detail/${studio.id}`} $variant="plain">
                             <div
                                 css={css`
                                     position: relative;
@@ -65,11 +65,11 @@ export default function IndexArtist(): ReactElement | null {
                                     background: ${({ theme }) => theme.colors.bg.secondary};
                                 `}
                             >
-                                {!!artist.tattoos.nodes.length && (
+                                {!!studio.tattoos.nodes.length && (
                                     <ImageElement
                                         loading="lazy"
                                         $variant="cover"
-                                        $api={{ type: "image", image: artist.tattoos.nodes[0].image, width: 400 }}
+                                        $api={{ type: "image", image: studio.tattoos.nodes[0].image, width: 400 }}
                                         css={css`
                                             position: absolute;
                                             top: 0px;
@@ -84,11 +84,7 @@ export default function IndexArtist(): ReactElement | null {
                                     padding: ${({ theme }) => theme.space[2]};
                                 `}
                             >
-                                <AvatarComponent
-                                    size="medium"
-                                    image={artist.account.image}
-                                    name={artist.account.name}
-                                />
+                                <AvatarComponent square size="medium" image={studio.image} name={studio.name} />
                                 <TextElement
                                     $variant="line"
                                     css={css`
@@ -97,7 +93,7 @@ export default function IndexArtist(): ReactElement | null {
                                         font-weight: ${({ theme }) => theme.fontWeights.medium};
                                     `}
                                 >
-                                    {artist.account.name}
+                                    {studio.name}
                                 </TextElement>
                             </div>
                         </LinkElement>

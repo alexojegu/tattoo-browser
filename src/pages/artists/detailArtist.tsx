@@ -13,16 +13,16 @@ import { DETAIL_ARTIST, DetailArtistData, DetailArtistVars } from "../../request
 
 export default function DetailArtist(): ReactElement | null {
     const { id } = useParams<DetailArtistParams>();
-    const { error, loading, data } = useQuery<DetailArtistData, DetailArtistVars>(DETAIL_ARTIST, {
+    const { loading, error, data } = useQuery<DetailArtistData, DetailArtistVars>(DETAIL_ARTIST, {
         variables: { id, tattooLimit: 20 },
     });
 
-    if (error) {
-        return <Redirect to="/error" />;
-    }
-
     if (loading) {
         return null;
+    }
+
+    if (error) {
+        return <Redirect to="/error" />;
     }
 
     if (!data?.artist) {
@@ -65,15 +65,17 @@ export default function DetailArtist(): ReactElement | null {
                     >
                         {data.artist.account.name}
                     </HeadingElement>
-                    <SocialComponent
-                        website={data.artist.website}
-                        instagram={data.artist.instagram}
-                        facebook={data.artist.facebook}
-                    />
+                    {(data.artist.website || data.artist.instagram || data.artist.facebook) && (
+                        <SocialComponent
+                            website={data.artist.website}
+                            instagram={data.artist.instagram}
+                            facebook={data.artist.facebook}
+                        />
+                    )}
                 </div>
             </header>
             {!!data.artist.tattoos.nodes.length && (
-                <MasonryComponent columns={3}>
+                <MasonryComponent columns={{ sm: 2, lg: 3, xl: 4 }}>
                     {data.artist.tattoos.nodes.map((tattoo) => (
                         <div key={tattoo.id}>
                             <LinkElement as={Link} to={`/tattoo/detail/${tattoo.id}`} $variant="plain">

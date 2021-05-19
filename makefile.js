@@ -1,45 +1,28 @@
+require('dotenv').config();
 require('shelljs/make');
 
-const { readFileSync } = require('fs');
-const { parse } = require('dotenv');
-
-function environment(node) {
-  const config = parse(readFileSync(`.env.${node}`));
-
-  env['NODE_ENV'] = node;
-
-  for (const key in config) {
-    env[key] = config[key];
-  }
-}
-
 target.start = () => {
-  environment('production');
-  exec('http-server dist --silent');
+  env['NODE_ENV'] = 'production';
+  exec('serve --listen 8080 --single dist');
 };
 
 target.lint = () => {
-  environment('development');
-  exec('eslint . --ext .js,.ts,.tsx');
-  exec('prettier src/**/*.svg --write');
+  env['NODE_ENV'] = 'development';
+  exec('eslint --color .');
+};
+
+target.pretty = () => {
+  env['NODE_ENV'] = 'development';
+  exec('prettier --write **/*.{html,svg}');
 };
 
 target.build = () => {
-  environment('production');
+  env['NODE_ENV'] = 'production';
   rm('-rf', 'dist/*');
   exec('webpack --bail --color');
 };
 
 target.watch = () => {
-  environment('development');
+  env['NODE_ENV'] = 'development';
   exec('webpack serve');
-};
-
-target.git = ([hook]) => {
-  switch (hook) {
-    case 'pre-commit':
-      target.lint();
-      target.build();
-      break;
-  }
 };

@@ -7,6 +7,7 @@ const IndexTattoo = lazy(async () => import("../pages/tattoos/indexTattoo"));
 const DetailTattoo = lazy(async () => import("../pages/tattoos/detailTattoo"));
 const IndexArtist = lazy(async () => import("../pages/artists/indexArtist"));
 const DetailArtist = lazy(async () => import("../pages/artists/detailArtist"));
+const IndexStudio = lazy(async () => import("../pages/studios/indexStudio"));
 const DetailStudio = lazy(async () => import("../pages/studios/detailStudio"));
 const ErrorPage = lazy(async () => import("../pages/errorPage"));
 
@@ -15,8 +16,8 @@ export default function MainLayout(): ReactElement {
         <main
             css={css`
                 display: flex;
-                flex: 1 1 auto;
                 flex-direction: column;
+                flex-grow: 1;
             `}
         >
             <Suspense fallback={null}>
@@ -35,6 +36,9 @@ export default function MainLayout(): ReactElement {
                     </Route>
                     <Route exact path="/artist/detail/:id">
                         <DetailArtist />
+                    </Route>
+                    <Route exact path="/studio">
+                        <IndexStudio />
                     </Route>
                     <Route exact path="/studio/detail/:id">
                         <DetailStudio />

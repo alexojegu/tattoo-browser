@@ -3,13 +3,13 @@
   "trailingComma": "all",
   "overrides": [
     {
-      "files": "*.js",
+      "files": ["*.js", "*.jsx"],
       "options": {
         "singleQuote": true
       }
     },
     {
-      "files": "*.svg",
+      "files": ["*.svg"],
       "options": {
         "parser": "html"
       }

@@ -6,14 +6,11 @@ import FacebookGraphic from "../graphics/facebookGraphic.svg";
 import InstagramGraphic from "../graphics/instagramGraphic.svg";
 import LinkGraphic from "../graphics/linkGraphic.svg";
 
-export default function SocialComponent(props: SocialComponentProps): ReactElement | null {
-    if (!props.website && !props.instagram && !props.facebook) {
-        return null;
-    }
-
+export default function SocialComponent(props: SocialComponentProps): ReactElement {
     return (
         <ListElement
             $variant="plain"
+            className={props.className}
             css={css`
                 display: flex;
 
@@ -21,7 +18,6 @@ export default function SocialComponent(props: SocialComponentProps): ReactEleme
                     margin-left: ${({ theme }) => theme.space[1]};
                 }
             `}
-            className={props.className}
         >
             {props.website && (
                 <li>
