@@ -1,6 +1,11 @@
 import styled, { css } from "styled-components";
 
 const linkVariants = {
+    layout: css`
+        font-weight: ${({ theme }) => theme.fontWeights.semibold};
+        text-decoration: none;
+        color: inherit;
+    `,
     plain: css`
         text-decoration: none;
         color: inherit;

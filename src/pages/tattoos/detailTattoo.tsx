@@ -38,13 +38,13 @@ export default function DetailTattoo(): ReactElement | null {
                     css={css`
                         position: relative;
                         padding-top: calc(${data.tattoo.height / data.tattoo.width} * 100%);
-                        background: ${({ theme }) => theme.colors.bg.secondary};
+                        background: ${({ theme }) => theme.colors.bg.placeholder};
                     `}
                 >
                     <ImageElement
                         loading="lazy"
                         $variant="contain"
-                        $api={{ type: "image", image: data.tattoo.image, width: 800 }}
+                        $api={{ kind: "image", image: data.tattoo.image, width: 800 }}
                         css={css`
                             position: absolute;
                             top: 0px;

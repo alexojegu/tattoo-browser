@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: ${({ theme }) => theme.fontWeights.regular};
         line-height: ${({ theme }) => theme.lineHeights.default};
         background: ${({ theme }) => theme.colors.bg.primary};
-        color: ${({ theme }) => theme.colors.text.primary}
+        color: ${({ theme }) => theme.colors.text.primary};
     }
 
     button {

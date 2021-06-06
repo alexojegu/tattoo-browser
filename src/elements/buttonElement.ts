@@ -14,6 +14,14 @@ const buttonVariants = {
         appearance: none;
         cursor: pointer;
     `,
+    plain: css`
+        border: none;
+        padding: 0px;
+        background: inherit;
+        color: inherit;
+        appearance: none;
+        cursor: pointer;
+    `,
 };
 
 const ButtonElement = styled.button<ButtonElementProps>`

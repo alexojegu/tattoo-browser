@@ -1,4 +1,4 @@
-export function imageApi(args: ImageApiArgs): Pick<HTMLImageElement, "src"> {
+function imageSource(args: ImageSourceArgs): Pick<HTMLImageElement, "src"> {
     const url = new URL(args.image, process.env.IMAGE_URL);
 
     if (args.width) {
@@ -15,10 +15,8 @@ export function imageApi(args: ImageApiArgs): Pick<HTMLImageElement, "src"> {
     return { src: url.toString() };
 }
 
-export function mapApi(args: MapApiArgs): Pick<HTMLImageElement, "src"> {
+function mapSource(args: MapSourceArgs): Pick<HTMLImageElement, "src"> {
     const url = new URL("static", process.env.MAP_URL);
-
-    url.searchParams.set("access-token", String(process.env.MAP_KEY));
 
     url.searchParams.set("center", args.location.join());
     url.searchParams.set("size", `${args.width}x${args.height}`);
@@ -26,16 +24,31 @@ export function mapApi(args: MapApiArgs): Pick<HTMLImageElement, "src"> {
     url.searchParams.set("zoom", "13");
     url.searchParams.set("format", "png");
 
+    url.searchParams.set("access-token", String(process.env.MAP_KEY));
+
     return { src: url.toString() };
 }
 
-export interface ImageApiArgs {
+export default function imageAttribute(args: ImageAttributeArgs): Pick<HTMLImageElement, "src"> {
+    switch (args.kind) {
+        case "image":
+            return imageSource(args);
+        case "map":
+            return mapSource(args);
+    }
+}
+
+export type ImageAttributeArgs = ImageSourceArgs | MapSourceArgs;
+
+interface ImageSourceArgs {
+    kind: "image";
     image: string;
     width?: number;
     height?: number;
 }
 
-export interface MapApiArgs {
+interface MapSourceArgs {
+    kind: "map";
     location: number[];
     width: number;
     height: number;

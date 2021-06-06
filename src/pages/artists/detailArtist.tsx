@@ -83,13 +83,13 @@ export default function DetailArtist(): ReactElement | null {
                                     css={css`
                                         position: relative;
                                         padding-top: calc(${tattoo.height / tattoo.width} * 100%);
-                                        background: ${({ theme }) => theme.colors.bg.secondary};
+                                        background: ${({ theme }) => theme.colors.bg.placeholder};
                                     `}
                                 >
                                     <ImageElement
                                         loading="lazy"
                                         $variant="contain"
-                                        $api={{ type: "image", image: tattoo.image, width: 400 }}
+                                        $api={{ kind: "image", image: tattoo.image, width: 400 }}
                                         css={css`
                                             position: absolute;
                                             top: 0px;

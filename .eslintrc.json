@@ -19,6 +19,7 @@
   "rules": {
     "no-console": ["warn"],
     "no-duplicate-imports": ["error"],
+    "object-shorthand": ["error"],
     "sort-imports": ["error", { "ignoreDeclarationSort": true }],
     "react/jsx-uses-react": ["off"],
     "react/react-in-jsx-scope": ["off"]

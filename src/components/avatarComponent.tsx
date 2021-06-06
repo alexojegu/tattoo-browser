@@ -18,14 +18,14 @@ export default function AvatarComponent(props: AvatarComponentProps): ReactEleme
                 width: ${avatarSizes[props.size]};
                 height: ${avatarSizes[props.size]};
                 border-radius: ${props.square ? ({ theme }) => theme.radii[1] : "50%"};
-                background: ${({ theme }) => theme.colors.bg.secondary};
+                background: ${({ theme }) => theme.colors.bg.placeholder};
                 overflow: hidden;
             `}
         >
             <ImageElement
                 loading="lazy"
                 alt={props.name}
-                $api={{ type: "image", image: props.image, width: size, height: size }}
+                $api={{ kind: "image", image: props.image, width: size, height: size }}
             />
         </div>
     );

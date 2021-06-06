@@ -62,14 +62,14 @@ export default function IndexArtist(): ReactElement | null {
                                 css={css`
                                     position: relative;
                                     padding-top: 75%;
-                                    background: ${({ theme }) => theme.colors.bg.secondary};
+                                    background: ${({ theme }) => theme.colors.bg.placeholder};
                                 `}
                             >
                                 {!!artist.tattoos.nodes.length && (
                                     <ImageElement
                                         loading="lazy"
                                         $variant="cover"
-                                        $api={{ type: "image", image: artist.tattoos.nodes[0].image, width: 400 }}
+                                        $api={{ kind: "image", image: artist.tattoos.nodes[0].image, width: 400 }}
                                         css={css`
                                             position: absolute;
                                             top: 0px;

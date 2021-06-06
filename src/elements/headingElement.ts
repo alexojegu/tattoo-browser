@@ -17,11 +17,11 @@ const headingVariants = {
 };
 
 const HeadingElement = styled.h1.attrs<HeadingElementProps>(({ as, $variant }) => {
-    if (!as) {
-        return { as: $variant };
+    if (as) {
+        return;
     }
 
-    return;
+    return { as: $variant };
 })<HeadingElementProps>`
     ${({ $variant }) => $variant && headingVariants[$variant]};
 `;

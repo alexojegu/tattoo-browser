@@ -149,13 +149,13 @@ export default function DetailArtist(): ReactElement | null {
                             css={css`
                                 position: relative;
                                 padding-top: calc(${400 / 600} * 100%);
-                                background: ${({ theme }) => theme.colors.bg.secondary};
+                                background: ${({ theme }) => theme.colors.bg.placeholder};
                             `}
                         >
                             <ImageElement
                                 loading="lazy"
                                 $variant="contain"
-                                $api={{ type: "map", location: data.studio.location, width: 600, height: 400 }}
+                                $api={{ kind: "map", location: data.studio.location, width: 600, height: 400 }}
                                 css={css`
                                     position: absolute;
                                     top: 0px;

@@ -12,6 +12,7 @@ declare module "styled-components" {
         zIndices: number[];
         sizes: {
             header: string;
+            menu: string;
             content: string;
         };
         space: string[];
@@ -33,9 +34,12 @@ declare module "styled-components" {
             bg: {
                 primary: string;
                 secondary: string;
+                placeholder: string;
             };
             text: {
                 primary: string;
+                secondary: string;
+                placeholder: string;
             };
             border: {
                 primary: string;
